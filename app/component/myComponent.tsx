@@ -1,19 +1,33 @@
+import { Link } from 'expo-router';
 import * as React from 'react';
+import { View } from 'react-native';
 import { Avatar, Button, Card, Text } from 'react-native-paper';
 
 // const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
-const MyComponent = (props : {title:string,description:string,url:string}) => (
+const MyComponent = (props: { title: string, description: string, url: string, id: number, isBtn: boolean }) => (
   <Card className='w-full p-5' mode='outlined'>
     <Card.Content className='p-5'>
       <Text variant="titleLarge">{props.title}</Text>
       <Text className='line-clamp-2' variant="bodyMedium">{props.description}</Text>
     </Card.Content>
     <Card.Cover source={{ uri: `${props.url}` }} />
-    <Card.Actions className='m-2'>
-      <Button onPress={() => {console.log(123)}}>See more</Button>
+    {props.isBtn ? <Card.Actions className='m-2'>
+      <Link
+        href={{
+          pathname: '/singleProduct/[id]',
+          params: { id: props.id },
+        }}>
+        <Button onPress={() => { console.log(123) }}>See more</Button>
+      </Link>
       <Button>Add to Cart</Button>
-    </Card.Actions>
+    </Card.Actions> : <View style={{justifyContent: 'center'}} className='m-2 text-center justify-center items-center'>
+      <Link
+        className='text-center justify-center items-center'
+        href={'/'}>
+        <Button className='text-center justify-center items-center' onPress={() => { console.log(123) }}>Back</Button>
+      </Link>
+    </View>}
   </Card>
 );
 

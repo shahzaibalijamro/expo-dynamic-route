@@ -37,7 +37,7 @@ export default function Index() {
           {products ? products.map(item => {
             return <View className="w-full mb-8" key={item.id}>
               {/* <Text>{item.title}</Text> */}
-              <MyComponent title={item.title} description={item.description} url={item.thumbnail}/>
+              <MyComponent isBtn={true} id={item.id} title={item.title} description={item.description} url={item.thumbnail}/>
             </View>
           }) : <View className="h-100vh justify-center items-center">
             <ActivityIndicator animating={true} size={"large"} color={'blue'} />
