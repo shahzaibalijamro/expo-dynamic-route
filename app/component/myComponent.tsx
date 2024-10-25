@@ -18,14 +18,14 @@ const MyComponent = (props: { title: string, description: string, url: string, i
           pathname: '/singleProduct/[id]',
           params: { id: props.id },
         }}>
-        <Button onPress={() => { console.log(123) }}>See more</Button>
+        <Button>See more</Button>
       </Link>
       <Button>Add to Cart</Button>
     </Card.Actions> : <View style={{justifyContent: 'center'}} className='m-2 text-center justify-center items-center'>
       <Link
         className='text-center justify-center items-center'
         href={'/'}>
-        <Button className='text-center justify-center items-center' onPress={() => { console.log(123) }}>Back</Button>
+        <Button className='text-center justify-center items-center'>Back</Button>
       </Link>
     </View>}
   </Card>
